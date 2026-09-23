@@ -589,9 +589,9 @@ export default function HomePage() {
           </ScrollReveal>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
-              { series:'Series One', title:'I AM', sub:'120 Names of Jesus', days:120, available:true, img:'https://images.pexels.com/photos/1111319/pexels-photo-1111319.jpeg?auto=compress&cs=tinysrgb&w=600', desc:"A transformational journey through 120 names and titles of Jesus Christ—from Alpha to Omega, Bread of Life to King of Kings." },
-              { series:'Series Two', title:'Full of Grace and Truth', sub:'120 Gospel Encounters', days:120, available:false, img:'https://images.pexels.com/photos/415571/pexels-photo-415571.jpeg?auto=compress&cs=tinysrgb&w=600', desc:"Walk through the four Gospels in 120 powerful encounters with Jesus—see Him heal, teach, confront, and rise victorious." },
-              { series:'Series Three', title:'He Entered Before He Came', sub:'50 Days in Joshua', days:50, available:false, img:'https://images.pexels.com/photos/8108066/pexels-photo-8108066.jpeg?auto=compress&cs=tinysrgb&w=600', desc:"A 50-day journey through the book of Joshua, revealing how Christ was present long before He walked the earth—every battle, victory, and promise pointing to Him." },
+              { series:'Series One', title:'I AM', sub:'120 Names of Jesus', days:120, available:true, img:'https://images.pexels.com/photos/8735581/pexels-photo-8735581.jpeg?auto=compress&cs=tinysrgb&w=600', desc:"A transformational journey through 120 names and titles of Jesus Christ—from Alpha to Omega, Bread of Life to King of Kings." },
+              { series:'Series Two', title:'Full of Grace and Truth', sub:'120 Gospel Encounters', days:120, available:false, img:'https://images.pexels.com/photos/2258251/pexels-photo-2258251.jpeg?auto=compress&cs=tinysrgb&w=600', desc:"Walk through the four Gospels in 120 powerful encounters with Jesus—see Him heal, teach, confront, and rise victorious." },
+              { series:'Series Three', title:'He Entered Before He Came', sub:'50 Days in Joshua', days:50, available:false, img:'https://images.pexels.com/photos/19248218/pexels-photo-19248218.jpeg?auto=compress&cs=tinysrgb&w=600', desc:"A 50-day journey through the book of Joshua, revealing how Christ was present long before He walked the earth—every battle, victory, and promise pointing to Him." },
             ].map((s,i)=>(
               <ScrollReveal key={i} delay={i*120}>
                 <div className="premium-card rounded-2xl overflow-hidden ih-card">

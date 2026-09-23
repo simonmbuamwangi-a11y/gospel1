@@ -1,16 +1,17 @@
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
-import { ArrowRight, BookOpen, Users, Clock, Check, Search, ChevronDown, Calendar, Download } from 'lucide-react';
+import { ArrowRight, BookOpen, Users, Clock, Check, Search, ChevronDown, Calendar, Download, ShoppingBag } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 import { dailyDevotionals, getTodayDevotional, type DailyDevotional } from '@/data/devotionals';
 import { faqCategories, type FAQCategory } from '@/data/faq';
+import { collections, type Collection } from '@/pages/books/assets';
 
 const series = [
   {
     number: 'Series One', title: 'I AM', subtitle: '120 Names of Jesus', days: 120,
     available: true,
-    img: 'https://images.pexels.com/photos/1111319/pexels-photo-1111319.jpeg?auto=compress&cs=tinysrgb&w=800',
+    img: 'https://images.pexels.com/photos/8735581/pexels-photo-8735581.jpeg?auto=compress&cs=tinysrgb&w=800',
     description: "A transformational journey through 120 names and titles of Jesus Christ. From Alpha to Omega, Bread of Life to King of Kings—each day reveals a new dimension of His character, drawing every generation deeper into the reality of who Jesus truly is.",
     highlights: ['Rooted in 120 distinct scriptural names','Each name explored across 3 generations','Daily scripture, reflection, prayer, confession','Perfect for individual or family devotion'],
     audiences: ['Adults: Deep theological reflection','Teens: Real-life application','Children: Engaging stories'],
@@ -18,7 +19,7 @@ const series = [
   {
     number: 'Series Two', title: 'Full of Grace and Truth', subtitle: '120 Gospel Encounters', days: 120,
     available: false,
-    img: 'https://images.pexels.com/photos/415571/pexels-photo-415571.jpeg?auto=compress&cs=tinysrgb&w=800',
+    img: 'https://images.pexels.com/photos/2258251/pexels-photo-2258251.jpeg?auto=compress&cs=tinysrgb&w=800',
     description: "Walk through the four Gospels in 120 powerful encounters with Jesus. See Him heal the sick, teach the multitudes, confront religious pride, and rise victorious—through the eyes of every generation.",
     highlights: ['Chronological Gospel journey','Every encounter in three voices','Character studies and life lessons','A rich, complete picture of Jesus'],
     audiences: ['Adults: Historical context and depth','Teens: Personal encounter with Jesus',"Children: Jesus as friend and hero"],
@@ -254,7 +255,7 @@ export default function DevotionalsPage() {
   return (
     <div className="overflow-x-hidden">
       <section className="relative pt-32 pb-24 bg-navy-700 overflow-hidden" aria-label="Devotionals hero">
-        <div className="absolute inset-0 bg-cover bg-center" aria-hidden="true" style={{ backgroundImage: "url('https://images.pexels.com/photos/235554/pexels-photo-235554.jpeg?auto=compress&cs=tinysrgb&w=1920')", opacity: 0.2 }} />
+        <div className="absolute inset-0 bg-cover bg-center" aria-hidden="true" style={{ backgroundImage: "url('https://images.pexels.com/photos/8735586/pexels-photo-8735586.jpeg?auto=compress&cs=tinysrgb&w=1920')", opacity: 0.2 }} />
         <div className="absolute inset-0" aria-hidden="true" style={{ background: 'linear-gradient(180deg, rgba(14,32,53,0.78) 0%, rgba(14,32,53,0.92) 100%)' }} />
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true"
           style={{ background: 'radial-gradient(ellipse 55% 45% at 50% 75%, rgba(201,152,58,0.11) 0%, transparent 70%)' }} />
@@ -359,6 +360,106 @@ export default function DevotionalsPage() {
         </div>
       </section>
 
+      {/* Featured Names & Encounters */}
+      <section className="py-24 ih-section" aria-labelledby="featured-heading">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal className="text-center mb-14">
+            <p className="ih-eyebrow mb-3">Featured Names & Encounters</p>
+            <h2 id="featured-heading" className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+              A Glimpse of the Journey
+            </h2>
+            <p className="text-white/55 text-lg max-w-2xl mx-auto">
+              Each day unveils a new name of Jesus or a fresh encounter with Him — across all three generations.
+            </p>
+          </ScrollReveal>
+
+          {/* Series One featured names */}
+          <ScrollReveal className="mb-10">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-2.5 h-2.5 rounded-full bg-gold-400 shrink-0" aria-hidden="true" />
+              <h3 className="font-playfair text-xl font-bold text-gold-300">Series One — I AM: 120 Names of Jesus</h3>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { day: 'Day 1',   name: 'The Word',          ref: 'John 1:1' },
+                { day: 'Day 14',  name: 'Bread of Life',     ref: 'John 6:35' },
+                { day: 'Day 28',  name: 'Light of the World', ref: 'John 8:12' },
+                { day: 'Day 42',  name: 'Good Shepherd',      ref: 'John 10:11' },
+                { day: 'Day 56',  name: 'Resurrection',      ref: 'John 11:25' },
+                { day: 'Day 70',  name: 'The Way',            ref: 'John 14:6' },
+                { day: 'Day 84',  name: 'True Vine',          ref: 'John 15:1' },
+                { day: 'Day 120', name: 'King of Kings',     ref: 'Rev 19:16' },
+              ].map((item, i) => (
+                <ScrollReveal key={i} delay={i * 50}>
+                  <div className="premium-card p-5 rounded-xl ih-card h-full group transition-all duration-300 hover:-translate-y-0.5 hover:border-gold-400/40">
+                    <p className="text-[0.65rem] font-bold text-gold-400 tracking-[0.14em] uppercase mb-2">{item.day}</p>
+                    <h4 className="font-playfair text-base font-bold text-white mb-1 group-hover:text-gold-200 transition-colors">{item.name}</h4>
+                    <p className="text-white/45 text-xs">{item.ref}</p>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </ScrollReveal>
+
+          {/* Series Two featured encounters */}
+          <ScrollReveal className="mb-10">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-2.5 h-2.5 rounded-full bg-navy-400 shrink-0" aria-hidden="true" />
+              <h3 className="font-playfair text-xl font-bold text-navy-300">Series Two — Full of Grace and Truth: 120 Gospel Encounters</h3>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { day: 'Day 121', name: 'The Word Became Flesh',   ref: 'John 1:14' },
+                { day: 'Day 135', name: 'Water Turned to Wine',    ref: 'John 2:1-11' },
+                { day: 'Day 150', name: 'The Woman at the Well',   ref: 'John 4:1-42' },
+                { day: 'Day 165', name: 'Feeding the Five Thousand', ref: 'John 6:1-15' },
+                { day: 'Day 180', name: 'Jesus Walks on Water',    ref: 'John 6:16-21' },
+                { day: 'Day 195', name: 'Healing the Blind Man',    ref: 'John 9:1-41' },
+                { day: 'Day 220', name: 'The Last Supper',         ref: 'John 13-17' },
+                { day: 'Day 240', name: 'It Is Finished',          ref: 'John 19:30' },
+              ].map((item, i) => (
+                <ScrollReveal key={i} delay={i * 50}>
+                  <div className="premium-card p-5 rounded-xl ih-card h-full group transition-all duration-300 hover:-translate-y-0.5 hover:border-gold-400/40">
+                    <p className="text-[0.65rem] font-bold text-navy-300 tracking-[0.14em] uppercase mb-2">{item.day}</p>
+                    <h4 className="font-playfair text-base font-bold text-white mb-1 group-hover:text-gold-200 transition-colors">{item.name}</h4>
+                    <p className="text-white/45 text-xs">{item.ref}</p>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* GET SERIES ONE CTA */}
+      <section className="py-20 bg-navy-700 relative overflow-hidden" aria-labelledby="get-series-heading">
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true" style={{ background: 'radial-gradient(ellipse 55% 45% at 50% 50%, rgba(201,152,58,0.12) 0%, transparent 70%)' }} />
+        <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 text-center">
+          <ScrollReveal>
+            <div className="w-14 h-14 mx-auto mb-8 relative">
+              <div className="w-full h-full rounded-full bg-gold-400/20 flex items-center justify-center">
+                <BookOpen size={26} className="text-gold-300" aria-hidden="true" />
+              </div>
+              <div className="absolute inset-0 rounded-full bg-gold-400/10 animate-glow-pulse" aria-hidden="true" />
+            </div>
+            <h2 id="get-series-heading" className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+              Get Series One Today
+            </h2>
+            <p className="text-white/60 text-lg mb-10 leading-relaxed">
+              Begin the 120-day journey through the names of Jesus. Available now for adults, teens, and children — read together as a family or individually.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/books" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold-500 hover:bg-gold-400 text-navy-800 font-bold text-[0.9rem] rounded-full transition-all duration-300 shadow-gold hover:-translate-y-0.5">
+                Get Series One <ArrowRight size={17} aria-hidden="true" />
+              </Link>
+              <Link to="/free-sample" className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/25 text-white/80 hover:text-white hover:border-white/40 font-medium text-[0.9rem] rounded-full transition-all duration-200">
+                Try the Free 7-Day Sample <ArrowRight size={15} aria-hidden="true" />
+              </Link>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* What's Inside */}
       <section className="py-24 ih-section" aria-labelledby="inside-heading">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -375,6 +476,66 @@ export default function DevotionalsPage() {
                   </div>
                   <h3 className="font-playfair text-base font-bold text-white mb-2">{item.title}</h3>
                   <p className="text-white/55 text-xs leading-relaxed">{item.desc}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* OTHER BOOKS */}
+      <section className="py-24 ih-section" aria-labelledby="other-books-heading">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal className="text-center mb-14">
+            <p className="ih-eyebrow mb-3">The Full Library</p>
+            <h2 id="other-books-heading" className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+              Other Books in the Collection
+            </h2>
+            <p className="text-white/55 text-lg max-w-2xl mx-auto">
+              Every volume in the In Him Daily library — same scripture, three generations, one Jesus.
+            </p>
+          </ScrollReveal>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {collections.map((book: Collection, i) => (
+              <ScrollReveal key={book.id} delay={i * 80}>
+                <div className="premium-card rounded-2xl ih-card overflow-hidden h-full flex flex-col group transition-all duration-500 hover:-translate-y-1 hover:border-gold-400/50 hover:shadow-[0_20px_60px_rgba(201,152,58,0.18)]">
+                  <div className="relative h-56 overflow-hidden bg-white/[0.03] flex items-center justify-center">
+                    <img
+                      src={book.cover}
+                      alt={`${book.title} cover`}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-auto object-contain p-4 transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                    <div className="absolute top-3 left-3">
+                      <span className="px-3 py-1 rounded-full text-[0.68rem] font-bold bg-gold-500/15 text-gold-300 border border-gold-400/30">
+                        {book.volume}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-6 flex flex-col flex-1">
+                    <h3 className="font-playfair text-lg font-bold text-white mb-1 leading-snug">{book.title}</h3>
+                    <p className="text-gold-400 text-[0.72rem] font-semibold mb-3">{book.scripture}</p>
+                    <p className="text-white/55 text-sm leading-relaxed mb-4 flex-1">{book.description}</p>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-[0.72rem] text-white/60 bg-white/10 px-3 py-1.5 rounded-full">{book.days} Days</span>
+                      <span className="text-gold-300 font-bold text-sm">$12 <span className="text-white/40 font-normal text-xs">/ edition</span></span>
+                    </div>
+                    <div className="flex gap-2">
+                      <Link
+                        to="/books#pricing"
+                        className="flex-1 inline-flex items-center justify-center gap-1.5 px-4 py-3 bg-gold-500 hover:bg-gold-400 text-navy-800 font-bold text-[0.8rem] rounded-full transition-all duration-300 hover:-translate-y-px"
+                      >
+                        <ShoppingBag size={14} aria-hidden="true" /> Buy Now
+                      </Link>
+                      <Link
+                        to="/free-sample"
+                        className="inline-flex items-center justify-center px-4 py-3 border border-white/20 text-white/70 hover:text-white hover:border-white/40 font-medium text-[0.8rem] rounded-full transition-all duration-200"
+                      >
+                        Order
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               </ScrollReveal>
             ))}
