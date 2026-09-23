@@ -499,13 +499,13 @@ export default function DevotionalsPage() {
             {collections.map((book: Collection, i) => (
               <ScrollReveal key={book.id} delay={i * 80}>
                 <div className="premium-card rounded-2xl ih-card overflow-hidden h-full flex flex-col group transition-all duration-500 hover:-translate-y-1 hover:border-gold-400/50 hover:shadow-[0_20px_60px_rgba(201,152,58,0.18)]">
-                  <div className="relative h-56 overflow-hidden bg-white/[0.03] flex items-center justify-center">
+                  <div className="bg-white/[0.03] flex items-center justify-center p-6">
                     <img
                       src={book.cover}
                       alt={`${book.title} cover`}
                       loading="lazy"
                       decoding="async"
-                      className="h-full w-auto object-contain p-4 transition-transform duration-500 group-hover:scale-[1.03]"
+                      className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                     <div className="absolute top-3 left-3">
                       <span className="px-3 py-1 rounded-full text-[0.68rem] font-bold bg-gold-500/15 text-gold-300 border border-gold-400/30">
