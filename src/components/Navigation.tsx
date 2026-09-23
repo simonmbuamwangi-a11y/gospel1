@@ -83,7 +83,7 @@ export default function Navigation() {
         scrolled ? 'glass-nav py-2 shadow-glass' : 'bg-transparent py-3'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-clip">
         <div className="flex items-center justify-between h-14">
 
           {/* Logo — ~210px wide */}
@@ -106,7 +106,7 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop nav */}
-          <nav aria-label="Main navigation" className="hidden xl:flex items-center gap-0.5">
+          <nav aria-label="Main navigation" className="hidden lg:flex items-center gap-0.5">
             {navLinks.map((link) => {
               const active = isActive(link.href);
               if (link.children) {
@@ -170,7 +170,7 @@ export default function Navigation() {
           </nav>
 
           {/* Shop Now CTA */}
-          <div className="hidden xl:flex">
+          <div className="hidden lg:flex">
             <Link
               to="/books"
               className="px-5 py-2.5 text-[0.8rem] font-semibold rounded-full bg-gold-500 text-[#05070D] hover:bg-gold-400 shadow-gold transition-all duration-300 hover:-translate-y-px"
@@ -181,7 +181,7 @@ export default function Navigation() {
 
           {/* Mobile toggle */}
           <button
-            className="xl:hidden p-2 rounded-lg transition-colors text-white hover:bg-white/10"
+            className="lg:hidden p-2 rounded-lg transition-colors text-white hover:bg-white/10"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
@@ -195,7 +195,7 @@ export default function Navigation() {
       {/* Mobile menu */}
       <div
         id="mobile-menu"
-        className={`xl:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+        className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
           mobileOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
         }`}
         aria-hidden={!mobileOpen}

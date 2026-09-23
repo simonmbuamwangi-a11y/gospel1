@@ -238,8 +238,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* AGE CARDS — directly below hero */}
-      <section className="py-20 ih-section" aria-labelledby="age-cards-heading">
+      {/* AGE CARDS — directly below hero with generous spacing */}
+      <section className="pt-32 pb-24 ih-section" aria-labelledby="age-cards-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-14">
             <p className="ih-eyebrow mb-3">One Message. Every Age.</p>
