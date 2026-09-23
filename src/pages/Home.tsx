@@ -238,6 +238,75 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* AGE CARDS — directly below hero */}
+      <section className="py-20 ih-section" aria-labelledby="age-cards-heading">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal className="text-center mb-14">
+            <p className="ih-eyebrow mb-3">One Message. Every Age.</p>
+            <h2 id="age-cards-heading" className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+              The Same Story, Three Voices
+            </h2>
+            <p className="text-white/55 text-lg max-w-2xl mx-auto">
+              Designed for every stage of life — the same unchanging story, told in a voice each generation can understand.
+            </p>
+          </ScrollReveal>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {[
+              {
+                age: 'Adult Edition',
+                range: 'Ages 18+',
+                features: ['Theological depth', 'Life application', 'Intercession prayer'],
+                cover: '/images/books/in_the_begining_he_was_there(adult_version).png',
+              },
+              {
+                age: 'Teen Edition',
+                range: 'Ages 13-17',
+                features: ['Real-life scenarios', 'Honest questions', 'Personal application'],
+                cover: '/images/books/in_the_begining_he_was_there(teen_version).png',
+              },
+              {
+                age: 'Kids Edition',
+                range: 'Ages 6-12',
+                features: ['Simple language', 'Fun activities', 'Bedtime prayers'],
+                cover: '/images/books/in_the_begining_he_was_there(kids_version).png',
+              },
+            ].map((card, i) => (
+              <ScrollReveal key={card.age} delay={i * 120}>
+                <div className="premium-card p-8 rounded-2xl ih-card h-full group transition-all duration-500 hover:-translate-y-1 hover:border-gold-400/50 hover:shadow-[0_20px_60px_rgba(201,152,58,0.18)]">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-500 group-hover:scale-110" style={{ background: 'rgba(201,152,58,0.12)', boxShadow: '0 0 24px rgba(201,152,58,0.2)' }}>
+                      <BookOpen className="text-gold-300" size={26} aria-hidden="true" />
+                    </div>
+                    <span className="font-playfair text-xs tracking-[0.2em] text-white/40">{card.range}</span>
+                  </div>
+                  <h3 className="font-playfair text-2xl font-semibold text-white mb-5">{card.age}</h3>
+                  <ul className="space-y-3 mb-8" role="list">
+                    {card.features.map((f) => (
+                      <li key={f} className="flex items-center gap-3 text-white/70 text-sm">
+                        <span className="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0" aria-hidden="true" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="relative w-full rounded-xl bg-white/[0.03] border border-white/5 overflow-hidden">
+                    <img
+                      src={card.cover}
+                      alt={`${card.age} devotional cover`}
+                      loading="lazy"
+                      decoding="async"
+                      className="relative block w-full h-auto object-contain p-4 transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  <Link to="/books" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-300 hover:text-gold-200 transition-colors">
+                    Explore {card.age.split(' ')[0]} <ArrowRight size={14} aria-hidden="true" />
+                  </Link>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* STATS */}
       <section className="py-16 ih-section border-t border-white/5" aria-labelledby="stats-heading">
         <h2 id="stats-heading" className="sr-only">Community statistics</h2>
